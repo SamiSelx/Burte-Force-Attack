@@ -9,7 +9,7 @@ const numThreads = 4;
 
 function startWorker(data){
     return new Promise((resolve,reject)=>{
-        const worker = new Worker('./bruteAttack.js',{
+        const worker = new Worker('./with-thread/bruteAttack.js',{
             workerData:data
         })
         worker.on('message',resolve)
