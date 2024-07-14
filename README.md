@@ -4,7 +4,7 @@
 create a folder
 open cmd
    ```bash
-git clone  https://github.com/SamiSelx/Burte-Force-Attack.git 
+   git clone  https://github.com/SamiSelx/Burte-Force-Attack.git 
     ```
 
 3. **Install dependencies:**
@@ -15,7 +15,7 @@ git clone  https://github.com/SamiSelx/Burte-Force-Attack.git
 4. **Start the server:**
    1.**testing the simple brute attack:**
       ```bash
-npm run startSimple
+   npm run startSimple
       ```
       
   2.**testing the Dictionary:**
