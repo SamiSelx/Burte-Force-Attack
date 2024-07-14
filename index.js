@@ -5,6 +5,7 @@ import { Worker } from 'worker_threads'
 const API_URL = process.env.API_URL
 const email = 'sami@gmail.com'
 
+
 async function bruteForceAttack(password){
     try {
         // fetch data with post Request
@@ -32,7 +33,7 @@ async function bruteForceAttack(password){
         return false
     }
 }
-
+//fonction
 async function main(){
     try {
         // get array of passwords from file password.txt
