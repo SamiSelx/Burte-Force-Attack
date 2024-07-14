@@ -12,7 +12,10 @@ open cmd
    npm install
    ```
 
-4. **Start the server:**
+4. **ADD Your Email on .env FILE**
+
+
+5. **Start the server:**
 
    1.**testing the simple brute attack:**
       ```bash
