@@ -13,6 +13,7 @@ open cmd
    ```
 
 4. **Start the server:**
+
    1.**testing the simple brute attack:**
       ```bash
    npm run startSimple
