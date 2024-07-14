@@ -39,13 +39,11 @@ async function main() {
       passwordChunks.push(passwords.slice(i, i + chunkSize));
     }
     
-    const t1 = Date.now()
     // return promise for every chunks (every chunk will be execute brute attack on their thread)
     const workerPromises = passwordChunks.map(chunk => startWorker({
       API_URL,
       email,
-      passwords: chunk,
-      t1
+      passwords: chunk
     }));
     // Execute all promises
     await Promise.all(workerPromises);

