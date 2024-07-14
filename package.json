@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "startSimple":"node ./simple-Brute-force-Attack/index.js",
+    "startDictionary": "node ./index-thread.js"
   },
   "keywords": [],
   "author": "",
