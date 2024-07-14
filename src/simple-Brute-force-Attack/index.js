@@ -2,7 +2,7 @@ import chalk from 'chalk';
 import 'dotenv/config';
 
 const API_URL = process.env.API_URL;
-const email = 'sami@gmail.com';
+const email = process.env.EMAIL
 
 const lowercase = 'abcdefghijklmnopqrstuvwxyz';
 const uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
