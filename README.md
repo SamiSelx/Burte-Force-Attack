@@ -19,7 +19,7 @@ open cmd
       ```
       
   2.**testing the Dictionary:**
-     ```bash
+   ```bash
    npm run startDictionary
-      ```
+   ```
 
