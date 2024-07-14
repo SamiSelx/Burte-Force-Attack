@@ -1,8 +1,8 @@
-import fs from 'fs'
 import chalk from 'chalk'
 import 'dotenv/config'
 import { workerData, parentPort } from 'worker_threads'
 
+// Get data sent by Worker thread
 const {API_URL,email,passwords,t1} = workerData
 
 
