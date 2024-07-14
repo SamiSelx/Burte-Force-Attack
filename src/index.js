@@ -1,7 +1,6 @@
 import fs from 'fs'
 import chalk from 'chalk'
 import 'dotenv/config'
-import { Worker } from 'worker_threads'
 const API_URL = process.env.API_URL
 const email = 'sami@gmail.com'
 

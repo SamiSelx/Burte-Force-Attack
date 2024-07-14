@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "startSimple":"node ./simple-Brute-force-Attack/index.js",
-    "startDictionary": "node ./index-thread.js"
+    "startSimple":"node ./src/index-simple.js",
+    "startDictionary": "node ./src/index-dictionary-thread.js"
   },
   "keywords": [],
   "author": "",

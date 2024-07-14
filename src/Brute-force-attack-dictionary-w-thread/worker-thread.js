@@ -10,7 +10,7 @@ const numThreads = 4;
 
 function startWorker(data){
     return new Promise((resolve,reject)=>{
-        const worker = new Worker('./Brute-force-attack-dictionary-w-thread/bruteAttack.js',{
+        const worker = new Worker('./src/Brute-force-attack-dictionary-w-thread/bruteAttack.js',{
             workerData:data
         })
         worker.on('message',resolve)
